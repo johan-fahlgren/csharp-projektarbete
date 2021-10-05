@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Account\Logic.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{EA86D80E-1D67-47A4-8155-BD20F733D504}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rapport", "Rapport", "{990FB040-040A-4854-9955-D1EB531E574B}"
+	ProjectSection(SolutionItems) = preProject
+		Johan_Fahlgren.md = Johan_Fahlgren.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
