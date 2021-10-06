@@ -63,14 +63,38 @@ namespace Tests
                     
                     Assert.Equal(1995, account.AccountBalance());
                 }
-                
             }
+        }
 
-            
+        [Fact]
+        public void Test_DepositSalaryAccount()
+        {
+            SalaryAccount account = new SalaryAccount(0);
 
+            bool depositNoMoney = account.TryMakeDeposit(0);
 
+            Assert.False(depositNoMoney);
+
+            bool depositMoney = account.TryMakeDeposit(15000);
+
+            Assert.True(depositMoney);
 
         }
 
+        [Fact]
+        public void Test_WithdrawalAndOverdraft()
+        {
+            SalaryAccount account = new SalaryAccount(5000);
+
+            bool withdrawalMoney = account.TryMakeWithdrawal(1000);
+
+            Assert.True(withdrawalMoney);
+
+            bool withdrawalTooMuchMoney = account.TryMakeWithdrawal(5000);
+
+            Assert.False(withdrawalTooMuchMoney);
+
+
+        }
     }
 }
