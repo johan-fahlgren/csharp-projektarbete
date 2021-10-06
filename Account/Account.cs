@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Logic
 {
@@ -6,12 +7,17 @@ namespace Logic
     {
         //FIELD
         public string NewAccount;
-
+        
 
         //METHOD
         public void CreateAccount(string newAccount)
         {
             NewAccount = newAccount;
+        }
+
+        public bool DepositMoney()
+        {
+            throw new NotImplementedException();
         }
     }
 }

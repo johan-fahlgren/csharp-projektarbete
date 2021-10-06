@@ -26,5 +26,17 @@ namespace Tests
             
             Assert.Equal("savings_Account", _account.NewAccount);
         }
+
+
+        [Fact]
+        public void Test_AddCashToSavingsAccount()
+        {
+
+            bool newMoneyDeposit = _account.DepositMoney();
+
+            Assert.True(newMoneyDeposit);
+        }
+
+
     }
 }
