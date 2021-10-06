@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic
 {
-    public class SavingsAccount : IPayer
+    public class SavingsAccount : IPayer, IDeposit
     {
         private int _balance;
 
@@ -17,7 +17,7 @@ namespace Logic
 
         public bool TryMakeWithdrawal(int amount)
         {
-            bool canWithdrawal = amount <= _balance;
+            var canWithdrawal = amount <= _balance;
 
             if (canWithdrawal)
             {
@@ -27,7 +27,19 @@ namespace Logic
             return canWithdrawal;
         }
 
-        
+        public bool TryMakeDeposit(int amount)
+        {
+           var newBalance = amount + _balance;
+
+           if (newBalance > _balance)
+           {
+               return true;
+           }
+
+           return false;
+        }
+
+
 
     }
 }
