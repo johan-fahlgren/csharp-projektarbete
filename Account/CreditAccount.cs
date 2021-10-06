@@ -19,9 +19,26 @@ namespace Tests
 
         }
 
-        public bool TryMakePayment()
+        public bool TryMakePayment(int amount)
         {
-            throw new NotImplementedException();
+            bool canMakePayment = amount <= AccountBalance();
+
+            if (canMakePayment)
+            {
+                if (_balance < amount)
+                {
+                    amount -= _balance;
+                    _balance = 0;
+
+                    _credit -= amount;
+                }
+                else
+                {
+                    _balance -= amount;
+                }
+            }
+            
+            return canMakePayment;
         }
     }
 }

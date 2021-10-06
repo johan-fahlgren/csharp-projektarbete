@@ -109,9 +109,11 @@ namespace Tests
         {
             CreditAccount account = new CreditAccount(5000, 20000);
 
-            bool makePayment = account.TryMakePayment();
+            bool makePayment = account.TryMakePayment(10000);
 
             Assert.True(makePayment);
+
+            Assert.Equal(15000, account.AccountBalance());
 
 
         }
