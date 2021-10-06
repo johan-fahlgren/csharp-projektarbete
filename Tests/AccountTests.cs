@@ -7,24 +7,21 @@ namespace Tests
 {
     public class AccountTests
     {
-        
+        private int maxCredit = 20000;
         // TESTS SAVINGS ACCOUNT
         [Fact]
         public void Test_DepositMoney()
         {
-
             SavingsAccount account = new SavingsAccount(0);
 
             // Deposit no money to account
-            var depositMoney = account.TryMakeDeposit(0);
-            Assert.False(depositMoney);
+            var depositNoMoney = account.TryMakeDeposit(0);
+            Assert.False(depositNoMoney);
 
             // Deposit 1000 to account
-            depositMoney = account.TryMakeDeposit(1000);
-            Assert.True(depositMoney);
-            
+            var depositMoney = account.TryMakeDeposit(1000);
+            Assert.True(depositMoney); 
         }
-
 
         [Fact]
         public void Test_MakeWithdrawal()
@@ -65,7 +62,7 @@ namespace Tests
                 }
             }
         }
-
+        // Test Salary Account
         [Fact]
         public void Test_DepositSalaryAccount()
         {
@@ -78,7 +75,6 @@ namespace Tests
             bool depositMoney = account.TryMakeDeposit(15000);
 
             Assert.True(depositMoney);
-
         }
 
         [Fact]
@@ -93,8 +89,37 @@ namespace Tests
             bool withdrawalTooMuchMoney = account.TryMakeWithdrawal(5000);
 
             Assert.False(withdrawalTooMuchMoney);
+        }
 
+        // Test Credit Account
+        [Fact]
+        public void Test_CreateCreditAccount()
+        {
+            CreditAccount account = new CreditAccount(5000,maxCredit);
+            
+            Assert.Equal(25000, account.AccountBalance());
+        }
 
+        [Fact]
+        public void Test_OverdraftBalanceAndUseCredit()
+        {
+            CreditAccount account = new CreditAccount(5000, maxCredit);
+
+            bool makePayment = account.TryMakePayment(10000);
+
+            Assert.True(makePayment);
+
+            Assert.Equal(15000, account.AccountBalance());
+        }
+
+        [Fact]
+        public void Test_OverdraftCredit()
+        {
+            CreditAccount account = new CreditAccount(5000,maxCredit);
+
+            bool overCreditPayment = account.TryMakePayment(30000);
+
+            Assert.False(overCreditPayment);
         }
     }
 }
