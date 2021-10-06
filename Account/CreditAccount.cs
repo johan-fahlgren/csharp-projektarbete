@@ -4,13 +4,19 @@ namespace Tests
 {
     public class CreditAccount
     {
-        public CreditAccount()
+        private int _balance;
+        private int _credit;
+
+        public CreditAccount(int balance, int credit)
         {
+            _balance = balance;
+            _credit = credit;
         }
 
         public int AccountBalance()
         {
-            throw new NotImplementedException();
+            return _balance + _credit;
+
         }
     }
 }

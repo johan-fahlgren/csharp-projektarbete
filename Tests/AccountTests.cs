@@ -99,11 +99,9 @@ namespace Tests
         [Fact]
         public void Test_CreateCreditAccount()
         {
-            CreditAccount account = new CreditAccount();
-
-            int credit = 100;
-
-            Assert.Equal(credit, account.AccountBalance());
+            CreditAccount account = new CreditAccount(5000,20000);
+            
+            Assert.Equal(25000, account.AccountBalance());
         }
     }
 }
