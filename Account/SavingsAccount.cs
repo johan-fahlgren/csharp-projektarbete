@@ -39,6 +39,10 @@ namespace Logic
            return false;
         }
 
+        public int AccountBalance()
+        {
+            return _balance;
+        }
 
 
     }
