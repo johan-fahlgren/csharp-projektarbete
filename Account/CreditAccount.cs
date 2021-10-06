@@ -16,7 +16,6 @@ namespace Tests
         public int AccountBalance()
         {
             return _balance + _credit;
-
         }
 
         public bool TryMakePayment(int amount)
