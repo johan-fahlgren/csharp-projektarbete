@@ -1,16 +1,28 @@
 ﻿using System;
+using Logic;
 
 namespace Tests
 {
-    public class SalaryAccount
+    public class SalaryAccount : IDeposit
     {
-        public SalaryAccount()
+        private int _balance;
+        
+        public SalaryAccount(int balance)
         {
+            _balance = balance;
         }
 
-        public bool TryMakeDeposit()
+        public bool TryMakeDeposit(int amount)
         {
-            throw new NotImplementedException();
+            var canDeposit = amount + _balance;
+
+            if (canDeposit > _balance)
+            {
+                return true;
+               
+            }
+
+            return false;
         }
     }
 }

@@ -69,13 +69,13 @@ namespace Tests
         [Fact]
         public void Test_DepositSalaryAccount()
         {
-            SalaryAccount account = new SalaryAccount();
+            SalaryAccount account = new SalaryAccount(0);
 
-            bool depositNoMoney = account.TryMakeDeposit();
+            bool depositNoMoney = account.TryMakeDeposit(0);
 
             Assert.False(depositNoMoney);
 
-            bool depositMoney = account.TryMakeDeposit();
+            bool depositMoney = account.TryMakeDeposit(15000);
 
             Assert.True(depositMoney);
 
