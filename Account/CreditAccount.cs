@@ -18,5 +18,10 @@ namespace Tests
             return _balance + _credit;
 
         }
+
+        public bool TryMakePayment()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

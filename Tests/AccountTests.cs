@@ -103,5 +103,17 @@ namespace Tests
             
             Assert.Equal(25000, account.AccountBalance());
         }
+
+        [Fact]
+        public void Test_OverdraftBalanceAndUseCredit()
+        {
+            CreditAccount account = new CreditAccount(5000, 20000);
+
+            bool makePayment = account.TryMakePayment();
+
+            Assert.True(makePayment);
+
+
+        }
     }
 }
