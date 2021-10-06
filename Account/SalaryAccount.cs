@@ -24,5 +24,10 @@ namespace Tests
 
             return false;
         }
+
+        public bool TryMakeWithdrawal()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

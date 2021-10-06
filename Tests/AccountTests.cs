@@ -79,6 +79,21 @@ namespace Tests
 
             Assert.True(depositMoney);
 
+        }
+
+        [Fact]
+        public void Test_WithdrawalAndOverdraft()
+        {
+            SalaryAccount account = new SalaryAccount(5000);
+
+            bool withdrawalMoney = account.TryMakeWithdrawal();
+
+            Assert.True(withdrawalMoney);
+
+            bool withdrawalTooMuchMoney = account.TryMakeWithdrawal();
+
+            Assert.False(withdrawalTooMuchMoney);
+
 
         }
     }
