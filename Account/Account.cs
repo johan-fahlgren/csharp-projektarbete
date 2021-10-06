@@ -7,7 +7,8 @@ namespace Logic
     {
         //FIELD
         public string NewAccount;
-        
+        public int AccountBalance;
+
 
         //METHOD
         public void CreateAccount(string newAccount)
@@ -22,7 +23,12 @@ namespace Logic
                 return false;
             }
 
+            AccountBalance = balance;
             return true;
         }
+
+       
+
+
     }
 }

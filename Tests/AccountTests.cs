@@ -29,14 +29,17 @@ namespace Tests
 
 
         [Fact]
-        public void Test_AddCashToSavingsAccount()
+        public void Test_DepositMoney()
         {
-
+          
             bool noMoneyDeposit = _account.DepositMoney(0);
             bool newMoneyDeposit = _account.DepositMoney(1000);
             
+           
+
             Assert.False(noMoneyDeposit);
             Assert.True(newMoneyDeposit);
+            
         }
 
 
