@@ -63,14 +63,23 @@ namespace Tests
                     
                     Assert.Equal(1995, account.AccountBalance());
                 }
-                
             }
+        }
 
-            
+        [Fact]
+        public void Test_DepositSalaryAccount()
+        {
+            SalaryAccount account = new SalaryAccount();
 
+            bool depositNoMoney = account.TryMakeDeposit();
+
+            Assert.False(depositNoMoney);
+
+            bool depositMoney = account.TryMakeDeposit();
+
+            Assert.True(depositMoney);
 
 
         }
-
     }
 }
