@@ -93,8 +93,17 @@ namespace Tests
             bool withdrawalTooMuchMoney = account.TryMakeWithdrawal(5000);
 
             Assert.False(withdrawalTooMuchMoney);
+            
+        }
 
+        [Fact]
+        public void Test_CreateCreditAccount()
+        {
+            CreditAccount account = new CreditAccount();
 
+            int credit = 100;
+
+            Assert.Equal(credit, account.AccountBalance());
         }
     }
 }
