@@ -4,11 +4,14 @@ namespace Logic
 {
     public class Account
     {
-        
+        //FIELD
+        public string NewAccount;
 
-        public bool NewAccount()
+
+        //METHOD
+        public void CreateAccount(string newAccount)
         {
-            throw new NotImplementedException();
+            NewAccount = newAccount;
         }
     }
 }

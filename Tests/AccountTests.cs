@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Logic;
 using Xunit;
 
@@ -10,13 +11,20 @@ namespace Tests
         //FIELD
         private readonly Account _account;
 
+        //CONSTRUCTOR
+        public AccountTests()
+        {
+            _account = new Account();
+        }
 
+
+        //TESTS SAVING ACCOUNTS
         [Fact]
         public void Test_CreateSavingsAccount()
         {
-            bool newSavingsAccount = _account.NewAccount();
+            _account.CreateAccount("savings_Account");
             
-            Assert.True(newSavingsAccount);
+            Assert.Equal("savings_Account", _account.NewAccount);
         }
     }
 }
