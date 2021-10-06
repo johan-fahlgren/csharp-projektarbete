@@ -86,11 +86,11 @@ namespace Tests
         {
             SalaryAccount account = new SalaryAccount(5000);
 
-            bool withdrawalMoney = account.TryMakeWithdrawal();
+            bool withdrawalMoney = account.TryMakeWithdrawal(1000);
 
             Assert.True(withdrawalMoney);
 
-            bool withdrawalTooMuchMoney = account.TryMakeWithdrawal();
+            bool withdrawalTooMuchMoney = account.TryMakeWithdrawal(5000);
 
             Assert.False(withdrawalTooMuchMoney);
 

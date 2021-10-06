@@ -3,7 +3,7 @@ using Logic;
 
 namespace Tests
 {
-    public class SalaryAccount : IDeposit
+    public class SalaryAccount : IDeposit, IPayer
     {
         private int _balance;
         
@@ -25,9 +25,16 @@ namespace Tests
             return false;
         }
 
-        public bool TryMakeWithdrawal()
+        public bool TryMakeWithdrawal(int amount)
         {
-            throw new NotImplementedException();
+            var canWithdrawal = amount <= _balance;
+
+            if (canWithdrawal)
+            {
+                _balance -= amount;
+            }
+
+            return canWithdrawal;
         }
     }
 }
