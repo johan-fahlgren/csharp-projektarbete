@@ -8,13 +8,17 @@ namespace Logic
 {
     public class SavingsAccount : IPayer, IDeposit
     {
+        
+        //FIELD
         private int _balance;
 
+        //CONSTRUCTOR
         public SavingsAccount(int balance)
         {
             _balance = balance;
         }
 
+        //METHODS
         public bool TryMakeWithdrawal(int amount)
         {
             var canWithdrawal = amount <= _balance;
@@ -26,6 +30,7 @@ namespace Logic
 
             return canWithdrawal;
         }
+
 
         public bool TryMakeDeposit(int amount)
         {
@@ -39,6 +44,7 @@ namespace Logic
            return false;
         }
 
+        
         public int AccountBalance()
         {
             return _balance;

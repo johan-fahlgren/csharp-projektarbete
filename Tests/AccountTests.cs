@@ -8,18 +8,18 @@ namespace Tests
     public class AccountTests
     {
         
-        //TESTS SAVINGS ACCOUNT
+        // TESTS SAVINGS ACCOUNT
         [Fact]
         public void Test_DepositMoney()
         {
 
             SavingsAccount account = new SavingsAccount(0);
 
-            //Deposit no money to account
+            // Deposit no money to account
             var depositMoney = account.TryMakeDeposit(0);
             Assert.False(depositMoney);
 
-            //Deposit 1000 to account
+            // Deposit 1000 to account
             depositMoney = account.TryMakeDeposit(1000);
             Assert.True(depositMoney);
             
@@ -31,11 +31,11 @@ namespace Tests
         {
             SavingsAccount account = new SavingsAccount(1000);
 
-            //Withdrawal with money left
+            // Withdrawal with money left
             var withdrawalMoney = account.TryMakeWithdrawal(250);
             Assert.True(withdrawalMoney);
 
-            //Overdraft withdrawal
+            // Overdraft withdrawal
             withdrawalMoney = account.TryMakeWithdrawal(800);
             Assert.False(withdrawalMoney);
         }
@@ -49,12 +49,12 @@ namespace Tests
 
             for (int trys = 1; trys <= 6; trys++)
             {
-                
+                // Try 5 withdrawals
                 if (trys <= 5)
                 {
                     var withdrawalMoney = account.TryMakeWithdrawal(amount);
-                   
                 }
+                // Add 1% fee after 5 withdrawals
                 else
                 {
                     int fee = (amount/100) + amount;
