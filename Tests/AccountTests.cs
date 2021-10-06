@@ -7,44 +7,24 @@ namespace Tests
 {
     public class AccountTests
     {
-
-        //FIELD
-        private readonly Account _account;
-
-        //CONSTRUCTOR
-        public AccountTests()
-        {
-            _account = new Account();
-        }
-
-
+        
         //TESTS SAVINGS ACCOUNT
-        [Fact]
-        public void Test_CreateSavingsAccount()
-        {
-           
-            _account.CreateAccount("savings_Account");
-            
-
-            Assert.Equal("savings_Account", _account.NewAccount);
-
-        }
-
-
         [Fact]
         public void Test_DepositMoney()
         {
 
             SavingsAccount account = new SavingsAccount(0);
 
+            //Deposit no money to account
             var depositMoney = account.TryMakeDeposit(0);
             Assert.False(depositMoney);
 
+            //Deposit 1000 to account
             depositMoney = account.TryMakeDeposit(1000);
             Assert.True(depositMoney);
-
             
         }
+
 
         [Fact]
         public void Test_MakeWithdrawal()
