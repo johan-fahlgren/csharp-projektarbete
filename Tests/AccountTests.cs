@@ -32,8 +32,10 @@ namespace Tests
         public void Test_AddCashToSavingsAccount()
         {
 
-            bool newMoneyDeposit = _account.DepositMoney();
-
+            bool noMoneyDeposit = _account.DepositMoney(0);
+            bool newMoneyDeposit = _account.DepositMoney(1000);
+            
+            Assert.False(noMoneyDeposit);
             Assert.True(newMoneyDeposit);
         }
 

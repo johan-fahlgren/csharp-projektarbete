@@ -15,9 +15,14 @@ namespace Logic
             NewAccount = newAccount;
         }
 
-        public bool DepositMoney()
+        public bool DepositMoney(int balance)
         {
-            throw new NotImplementedException();
+            if (balance == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }
