@@ -121,5 +121,18 @@ namespace Tests
 
             Assert.False(overCreditPayment);
         }
+
+        //TEST INVESTMENT ACCOUNT
+
+        [Fact]
+        public void Test_DepositMoneyInvestmentAccount()
+        {
+
+            InvestmentAccount account = new InvestmentAccount();
+
+            bool depositMoney = account.TryMakeDeposit(5000);
+
+            Assert.True(depositMoney);
+        }
     }
 }
