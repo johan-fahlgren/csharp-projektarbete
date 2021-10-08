@@ -1,39 +1,38 @@
 ﻿using System;
+using Logic;
 
 namespace Tests
 {
-    public class CreditAccount
+    public class CreditAccount : Account
     {
-        private int _balance;
         private int _credit;
 
-        public CreditAccount(int balance, int credit)
+        public CreditAccount(int balance, int credit) :base (balance)
         {
-            _balance = balance;
             _credit = credit;
         }
 
-        public int AccountBalance()
+        public override int AccountBalance()
         {
-            return _balance + _credit;
+            return Balance + _credit;
         }
 
-        public bool TryMakePayment(int amount)
+        public override bool TryMakeWithdrawal(int amount)
         {
             bool canMakePayment = amount <= AccountBalance();
 
             if (canMakePayment)
             {
-                if (_balance < amount)
+                if (Balance < amount)
                 {
-                    amount -= _balance;
-                    _balance = 0;
+                    amount -= Balance;
+                    Balance = 0;
 
                     _credit -= amount;
                 }
                 else
                 {
-                    _balance -= amount;
+                    Balance -= amount;
                 }
             }
             

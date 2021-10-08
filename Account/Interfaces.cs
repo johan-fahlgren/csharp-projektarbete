@@ -9,10 +9,8 @@ namespace Logic
     public interface IPayer
     {
         public bool TryMakeWithdrawal(int amount);
-
     }
-
-
+    
     public interface IDeposit
     {
         public bool TryMakeDeposit(int amount);
