@@ -30,7 +30,14 @@ namespace Logic
 
         public bool TryMakeWithdrawal(int amount)
         {
-            throw new NotImplementedException();
+            var canWithdrawal = amount <= _balance;
+
+            if (canWithdrawal)
+            {
+                _balance -= amount;
+            }
+
+            return canWithdrawal;
         }
 
     }

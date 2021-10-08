@@ -140,10 +140,13 @@ namespace Tests
         {
             InvestmentAccount account = new InvestmentAccount(5500);
 
-            bool withdrawalMoney = account.TryMakeWithdrawal(4000);
+            //Withdrawal
+            bool withdrawalMoney = 
+                account.TryMakeWithdrawal(4000);
 
             Assert.True(withdrawalMoney);
 
+            //Overdraft
             bool withdrawalToMuchMoney =
                 account.TryMakeWithdrawal(2000);
 
