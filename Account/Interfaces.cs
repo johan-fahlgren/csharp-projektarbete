@@ -11,8 +11,7 @@ namespace Logic
         public bool TryMakeWithdrawal(int amount);
 
     }
-
-
+    
     public interface IDeposit
     {
         public bool TryMakeDeposit(int amount);

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic
 {
-    public class InvestmentAccount : IDeposit
+    public class InvestmentAccount : Account
     {
         private int _balance;
         public DateTime _dateTime;
@@ -17,18 +17,6 @@ namespace Logic
             _dateTime = dateTime;
         }
 
-        
-        public bool TryMakeDeposit(int amount)
-        {
-            var canDeposit = amount + _balance;
-
-            if (canDeposit >= _balance)
-            {
-                return true;
-            }
-
-            return false;
-        }
 
         public bool TryMakeWithdrawal(int amount)
         {

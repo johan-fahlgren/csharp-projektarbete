@@ -3,35 +3,21 @@ using Logic;
 
 namespace Tests
 {
-    public class SalaryAccount : IDeposit, IPayer
+    public class SalaryAccount : Account
     {
-        private int _balance;
-        
-        public SalaryAccount(int balance)
-        {
-            _balance = balance;
-        }
 
-        public bool TryMakeDeposit(int amount)
-        {
-            var canDeposit = amount + _balance;
+        public SalaryAccount(int balance) :base(balance)
+        { 
 
-            if (canDeposit > _balance)
-            {
-                return true;
-               
-            }
-
-            return false;
         }
 
         public bool TryMakeWithdrawal(int amount)
         {
-            var canWithdrawal = amount <= _balance;
+            var canWithdrawal = amount <= Balance;
 
             if (canWithdrawal)
             {
-                _balance -= amount;
+                Balance -= amount;
             }
 
             return canWithdrawal;
