@@ -8,34 +8,30 @@ namespace Logic
 {
     public class InvestmentAccount : Account
     {
-        private int _balance;
         public DateTime _dateTime;
-
-        public InvestmentAccount(int balance, DateTime dateTime)
+        
+        public InvestmentAccount(int balance, DateTime dateTime) :base(balance)
         {
-            _balance = balance;
+            Balance = balance;
             _dateTime = dateTime;
         }
-
-
-        public bool TryMakeWithdrawal(int amount)
+        
+        public override bool TryMakeWithdrawal(int amount)
         {
             if (!CheckDateWithdrawal())
             {
                 return false;
             }
 
-            var canWithdrawal = amount <= _balance;
+            var canWithdrawal = amount <= Balance;
 
             if (canWithdrawal)
             {
-                _balance -= amount;
+                Balance -= amount;
             }
 
             return canWithdrawal;
-
         }
-
         public bool CheckDateWithdrawal()
         {
             var dateNotOK = DateTime.Today + TimeSpan.FromDays(365);
@@ -48,8 +44,6 @@ namespace Logic
             }
 
             return false;
-
         }
-
     }
 }

@@ -7,7 +7,7 @@ namespace Tests
         private int _balance;
         private int _credit;
 
-        public CreditAccount(int balance, int credit)
+        public CreditAccount(int balance, int credit) 
         {
             _balance = balance;
             _credit = credit;

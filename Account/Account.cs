@@ -18,8 +18,7 @@ namespace Logic
 
             return false;
         }
-
-
+        
         public abstract bool TryMakeWithdrawal(int amount);
 
         protected Account(int balance)
