@@ -108,7 +108,7 @@ namespace Tests
         {
             CreditAccount account = new CreditAccount(5000, maxCredit);
 
-            bool makePayment = account.TryMakePayment(10000);
+            bool makePayment = account.TryMakeWithdrawal(10000);
 
             Assert.True(makePayment);
 
@@ -120,7 +120,7 @@ namespace Tests
         {
             CreditAccount account = new CreditAccount(5000,maxCredit);
 
-            bool overCreditPayment = account.TryMakePayment(30000);
+            bool overCreditPayment = account.TryMakeWithdrawal(30000);
 
             Assert.False(overCreditPayment);
         }
@@ -169,7 +169,7 @@ namespace Tests
 
             
             // Withdrawal plus one year from now
-            var newDate = account._dateTime = todaysDate + TimeSpan.FromDays(369);
+            var newDate = account.DateTime = todaysDate + TimeSpan.FromDays(369);
 
             bool withdrawalMoneyPlusOneYear =
                 account.TryMakeWithdrawal(1000);

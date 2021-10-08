@@ -9,7 +9,6 @@ namespace Logic
     public interface IPayer
     {
         public bool TryMakeWithdrawal(int amount);
-
     }
     
     public interface IDeposit

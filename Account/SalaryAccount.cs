@@ -5,20 +5,6 @@ namespace Tests
 {
     public class SalaryAccount : Account
     {
-        public SalaryAccount(int balance) :base(balance)
-        { 
-
-        }
-        public override bool TryMakeWithdrawal(int amount)
-        {
-            var canWithdrawal = amount <= Balance;
-
-            if (canWithdrawal)
-            {
-                Balance -= amount;
-            }
-
-            return canWithdrawal;
-        }
+        public SalaryAccount(int balance) :base(balance) {}
     }
 }
