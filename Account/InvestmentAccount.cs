@@ -8,12 +8,24 @@ namespace Logic
 {
     public class InvestmentAccount : IDeposit
     {
+        private int _balance;
 
+        public InvestmentAccount(int balance)
+        {
+            _balance = balance;
+        }
 
         
         public bool TryMakeDeposit(int amount)
         {
-            throw new NotImplementedException();
+            var canDeposit = amount + _balance;
+
+            if (canDeposit >= _balance)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

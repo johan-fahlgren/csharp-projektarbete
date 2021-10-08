@@ -128,7 +128,7 @@ namespace Tests
         public void Test_DepositMoneyInvestmentAccount()
         {
 
-            InvestmentAccount account = new InvestmentAccount();
+            InvestmentAccount account = new InvestmentAccount(500);
 
             bool depositMoney = account.TryMakeDeposit(5000);
 
