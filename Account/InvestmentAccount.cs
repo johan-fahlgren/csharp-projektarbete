@@ -27,5 +27,11 @@ namespace Logic
 
             return false;
         }
+
+        public bool TryMakeWithdrawal(int amount)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

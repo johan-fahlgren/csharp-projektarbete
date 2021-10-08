@@ -134,5 +134,20 @@ namespace Tests
 
             Assert.True(depositMoney);
         }
+
+        [Fact]
+        public void Test_WithdrawalMoneyInvestmentAccount()
+        {
+            InvestmentAccount account = new InvestmentAccount(5500);
+
+            bool withdrawalMoney = account.TryMakeWithdrawal(4000);
+
+            Assert.True(withdrawalMoney);
+
+            bool withdrawalToMuchMoney =
+                account.TryMakeWithdrawal(2000);
+
+            Assert.False(withdrawalToMuchMoney);
+        }
     }
 }
