@@ -7,7 +7,10 @@ namespace Tests
 {
     public class AccountTests
     {
+        //FIELDS
+        private DateTime todaysDate = DateTime.Today;
         private int maxCredit = 20000;
+
         // TESTS SAVINGS ACCOUNT
         [Fact]
         public void Test_DepositMoney()
@@ -128,7 +131,7 @@ namespace Tests
         public void Test_DepositMoneyInvestmentAccount()
         {
 
-            InvestmentAccount account = new InvestmentAccount(500);
+            InvestmentAccount account = new InvestmentAccount(500, todaysDate);
 
             bool depositMoney = account.TryMakeDeposit(5000);
 
@@ -138,7 +141,7 @@ namespace Tests
         [Fact]
         public void Test_WithdrawalMoneyInvestmentAccount()
         {
-            InvestmentAccount account = new InvestmentAccount(5500);
+            InvestmentAccount account = new InvestmentAccount(5500, todaysDate);
 
             //Withdrawal
             bool withdrawalMoney = 
@@ -151,6 +154,29 @@ namespace Tests
                 account.TryMakeWithdrawal(2000);
 
             Assert.False(withdrawalToMuchMoney);
+        }
+
+        [Fact]
+        public void Test_OnlyOneWithdrawalPerYearInvestmentAccount()
+        {
+            InvestmentAccount account = new InvestmentAccount(5000, todaysDate);
+
+            //Withdrawal today
+            bool withdrawalMoneyToday = 
+                account.TryMakeWithdrawal(1000);
+
+            Assert.True(withdrawalMoneyToday);
+
+            
+            // Withdrawal plus one year from now
+            var newDate = account._dateTime = todaysDate + TimeSpan.FromDays(369);
+
+            bool withdrawalMoneyPlusOneYear =
+                account.TryMakeWithdrawal(1000);
+
+            Assert.False(withdrawalMoneyPlusOneYear);
+
+
         }
     }
 }
