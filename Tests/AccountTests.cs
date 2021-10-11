@@ -194,5 +194,23 @@ namespace Tests
 
 
         }
+
+        [Fact]
+        public void Test_NoMoreDepositsIfMaxDepositIsReachedThatDay()
+        {
+            InvestmentAccount account =
+                new InvestmentAccount(4000, todaysDate);
+
+           bool depositMaximumAmount = account.TryMakeDeposit(15000);
+
+           Assert.True(depositMaximumAmount);
+
+           bool tryMakeSecondDepositAfterMaxAmount =
+               account.TryMakeDeposit(1500);
+
+           Assert.False(tryMakeSecondDepositAfterMaxAmount);
+            
+
+        }
     }
 }
