@@ -16,11 +16,14 @@ namespace Logic
         {
             var newBalance = amount + Balance;
 
-            if (newBalance > Balance)
+            if (amount <= 15000)
             {
-                return true;
+                if (newBalance > Balance)
+                {
+                    return true;
+                }
             }
-
+            
             return false;
         }
 
