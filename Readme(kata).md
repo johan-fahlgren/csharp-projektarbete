@@ -89,7 +89,9 @@ Metoden förespråkar att ingen programkod får införas eller ändras utan att testf
 
 Tack vare TDD törs utvecklaren göra även genomgripande förändringar av koden och genom en bred testsvit får man veta om den egna kodändringen haft sönder annan kod i systemet.
 
-![TDD_Graphic](Assets/Pictures/TDD_Graphic.jpg){: width=50%}
+<br />
+
+![TDD_Graphic](Assets/Pictures/TDD_Graphic.jpg){: width="70%"}
 
 <br />
 
