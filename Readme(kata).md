@@ -1,5 +1,16 @@
-# Bankapp
+# Bankapp 
 
+**Index**
+* [Overview](#overview)
+* [Features](#Features)
+* [Tests](#Tests)
+  * [TDD](#TDD)
+  * [xUnit](#xUnit)
+
+
+
+---
+## **Overview**{#Overview}
 I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa olika konton för din behov.
 
 > **Kontotyper som erbjuds:**  
@@ -9,9 +20,9 @@ I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa ol
 > - Lönekonto
     
 
+<br />
 
-
-## **Features**
+## **Features**{#Features}
 
 **Sparkonto**  
    * [x] Möjlighet till fem uttag per år sedan en avgift på 1% per uttag.
@@ -34,9 +45,9 @@ I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa ol
 - [ ]  Max kontoinsättning på 15.000 kr varje dag.
 - [ ] Årlig kontoavgift på 500 kr.
 
+<br />
 
-
-## **Tests**
+## **Tests** {#Tests}
 
 Testerna genomförs enlig TDD metoden med hjälp av xUnit.net framework. 
   
@@ -63,7 +74,14 @@ Testerna genomförs enlig TDD metoden med hjälp av xUnit.net framework.
         }
 ```
 
-#### **TDD**
+| Tests | Description |
+| ----------- | ----------- |
+| Test_MakeWithdrawal | Tests if its possible to make a `withdrawal` |
+| Test_DepositMoney | Tests if its possible to make a  `deposit` |
+
+<br />
+
+#### **TDD**{#TDD}
 
 Testdriven utveckling (engelska: test-driven development, TDD) är en systemutvecklingsmetod som sätter starkt fokus på automatiserad enhetstestning av varje programblock, följt av integrationstester och användartester.
 
@@ -71,8 +89,15 @@ Metoden förespråkar att ingen programkod får införas eller ändras utan att testf
 
 Tack vare TDD törs utvecklaren göra även genomgripande förändringar av koden och genom en bred testsvit får man veta om den egna kodändringen haft sönder annan kod i systemet.
 
-![T D D Graphic](Assets/Pictures/TDD_Graphic.jpg)
+![TDD_Graphic](Assets/Pictures/TDD_Graphic.jpg){: width=50%}
 
-#### **xUnit**
+<br />
 
-Är en gratis, open-source unit test verktyg för .NET framework. 
+#### **xUnit.net**{#xUnit}
+
+xUnit.net är en gratis, open-source unit test verktyg för .NET framework. 
+
+
+
+
+
