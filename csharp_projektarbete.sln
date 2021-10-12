@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rapport", "Rapport", "{990F
 	ProjectSection(SolutionItems) = preProject
 		Jeanette_Ljungkvist.md = Jeanette_Ljungkvist.md
 		Johan_Fahlgren.md = Johan_Fahlgren.md
+		Readme(kata).md = Readme(kata).md
 	EndProjectSection
 EndProject
 Global
