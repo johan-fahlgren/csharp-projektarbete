@@ -1,7 +1,7 @@
 # Bankapp 
 
 **Index**
-* [Overview](#overview)
+* [Overview](#Overview)
 * [Features](#Features)
 * [Tests](#Tests)
   * [TDD](#TDD)
@@ -10,7 +10,7 @@
 
 
 ---
-## **Overview**{#Overview}
+## **Overview**
 I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa olika konton för din behov.
 
 > **Kontotyper som erbjuds:**  
@@ -22,7 +22,7 @@ I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa ol
 
 <br />
 
-## **Features**{#Features}
+## **Features**
 
 **Sparkonto**  
    * [x] Möjlighet till fem uttag per år sedan en avgift på 1% per uttag.
@@ -47,7 +47,7 @@ I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa ol
 
 <br />
 
-## **Tests** {#Tests}
+## **Tests** 
 
 Testerna genomförs enlig TDD metoden med hjälp av xUnit.net framework. 
   
@@ -81,7 +81,7 @@ Testerna genomförs enlig TDD metoden med hjälp av xUnit.net framework.
 
 <br />
 
-#### **TDD**{#TDD}
+#### **TDD**
 
 Testdriven utveckling (engelska: test-driven development, TDD) är en systemutvecklingsmetod som sätter starkt fokus på automatiserad enhetstestning av varje programblock, följt av integrationstester och användartester.
 
@@ -95,7 +95,7 @@ Tack vare TDD törs utvecklaren göra även genomgripande förändringar av koden och
 
 <br />
 
-#### **xUnit.net**{#xUnit}
+#### **xUnit.net**
 
 xUnit.net är en gratis, open-source unit test verktyg för .NET framework. 
 
