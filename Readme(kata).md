@@ -1,4 +1,4 @@
-# ankapp
+# Bankapp
 
 I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa olika konton för din behov.
 
@@ -71,8 +71,7 @@ Metoden förespråkar att ingen programkod får införas eller ändras utan att testf
 
 Tack vare TDD törs utvecklaren göra även genomgripande förändringar av koden och genom en bred testsvit får man veta om den egna kodändringen haft sönder annan kod i systemet.
 
-
-![T D D Graphic](Assets\Pictures\TDD_Graphic.jpg)
+![T D D Graphic](Assets/Pictures/TDD_Graphic.jpg)
 
 #### **xUnit**
 
