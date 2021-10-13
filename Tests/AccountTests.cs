@@ -179,7 +179,7 @@ namespace Tests
 
             Assert.False(withdrawalMoneyPlusOneYear);
 
-
+            
         }
 
         [Fact]
@@ -191,6 +191,28 @@ namespace Tests
             bool depositToMuch = account.TryMakeDeposit(15001);
 
             Assert.False(depositToMuch);
+
+
+        }
+
+        [Fact]
+        public void Test_NoMoreDepositsIfMaxDepositIsReachedThatDay()
+        {
+            InvestmentAccount account =
+                new InvestmentAccount(4000, todaysDate);
+
+           bool depositMaximumAmount = account.TryMakeDeposit(15000);
+
+           Assert.True(depositMaximumAmount);
+
+           bool tryMakeSecondDepositAfterMaxAmount =
+               account.TryMakeDeposit(1500);
+
+           Assert.False(tryMakeSecondDepositAfterMaxAmount);
+
+           bool tryMakeDepositOneDayLater = account.TryMakeDeposit(3000);
+
+           Assert.True(tryMakeDepositOneDayLater);
 
 
         }
