@@ -8,42 +8,51 @@ namespace Tests
     public class AccountTests
     {
         //FIELDS
-        private DateTime todaysDate = DateTime.Today;
         private int maxCredit = 20000;
 
         // TESTS SAVINGS ACCOUNT
         [Fact]
-        public void Test_DepositMoney()
+        public void Test_DepositMoney_SavingsAccount()
         {
-            SavingsAccount account = new SavingsAccount(0);
+            SavingsAccount account = 
+                new SavingsAccount(0);
 
             // Deposit no money to account
-            var depositNoMoney = account.TryMakeDeposit(0);
+            var depositNoMoney = 
+                account.TryMakeDeposit(0);
             Assert.False(depositNoMoney);
 
             // Deposit 1000 to account
-            var depositMoney = account.TryMakeDeposit(1000);
+            var depositMoney = 
+                account.TryMakeDeposit(1000);
+           
             Assert.True(depositMoney); 
         }
 
         [Fact]
-        public void Test_MakeWithdrawal()
+        public void Test_MakeWithdrawal_SavingsAccount()
         {
-            SavingsAccount account = new SavingsAccount(1000);
+            SavingsAccount account = 
+                new SavingsAccount(1000);
 
             // Withdrawal with money left
-            var withdrawalMoney = account.TryMakeWithdrawal(250);
+            var withdrawalMoney = 
+                account.TryMakeWithdrawal(250);
+            
             Assert.True(withdrawalMoney);
 
             // Overdraft withdrawal
-            withdrawalMoney = account.TryMakeWithdrawal(800);
+            withdrawalMoney = 
+                account.TryMakeWithdrawal(800);
+            
             Assert.False(withdrawalMoney);
         }
 
         [Fact]
-        public void Test_TryWithdrawalFiveTimesThenAddFee()
+        public void Test_TryWithdrawalFiveTimesThenAddFee_SavingsAccount()
         {
-            SavingsAccount account = new SavingsAccount(5000);
+            SavingsAccount account = 
+                new SavingsAccount(5000);
             
             int amount = 500;
 
@@ -52,63 +61,72 @@ namespace Tests
                 // Try 5 withdrawals
                 if (trys <= 5)
                 {
-                    var withdrawalMoney = account.TryMakeWithdrawal(amount);
+                    account.TryMakeWithdrawal(amount);
                 }
                 // Add 1% fee after 5 withdrawals
                 else
                 {
                     int fee = (amount/100) + amount;
                     
-                    var withdrawalFee = account.TryMakeWithdrawal(fee);
+                    account.TryMakeWithdrawal(fee);
                     
                     Assert.Equal(1995, account.AccountBalance());
                 }
             }
         }
-        // Test Salary Account
+        // TEST SALARY ACCOUNT
         [Fact]
-        public void Test_DepositSalaryAccount()
+        public void Test_DepositSalaryAccount_SalaryAccount()
         {
-            SalaryAccount account = new SalaryAccount(0);
+            SalaryAccount account = 
+                new SalaryAccount(0);
 
-            bool depositNoMoney = account.TryMakeDeposit(0);
+            bool depositNoMoney = 
+                account.TryMakeDeposit(0);
 
             Assert.False(depositNoMoney);
 
-            bool depositMoney = account.TryMakeDeposit(15000);
+            bool depositMoney = 
+                account.TryMakeDeposit(15000);
 
             Assert.True(depositMoney);
         }
 
         [Fact]
-        public void Test_WithdrawalAndOverdraft()
+        public void Test_WithdrawalAndOverdraft_SalaryAccount()
         {
-            SalaryAccount account = new SalaryAccount(5000);
+            SalaryAccount account = 
+                new SalaryAccount(5000);
 
-            bool withdrawalMoney = account.TryMakeWithdrawal(1000);
+            bool withdrawalMoney = 
+                account.TryMakeWithdrawal(1000);
 
             Assert.True(withdrawalMoney);
 
-            bool withdrawalTooMuchMoney = account.TryMakeWithdrawal(5000);
+            bool withdrawalTooMuchMoney = 
+                account.TryMakeWithdrawal(5000);
 
             Assert.False(withdrawalTooMuchMoney);
         }
 
-        // Test Credit Account
+        // TEST CREDIT ACCOUNT
         [Fact]
-        public void Test_CreateCreditAccount()
+        public void Test_CreateCreditAccount_CreditAccount()
         {
-            CreditAccount account = new CreditAccount(5000,maxCredit);
+            CreditAccount account = 
+                new CreditAccount(5000,maxCredit);
             
             Assert.Equal(25000, account.AccountBalance());
         }
 
         [Fact]
-        public void Test_OverdraftBalanceAndUseCredit()
+        public void Test_OverdraftBalanceAndUseCredit_CreditAccount()
         {
-            CreditAccount account = new CreditAccount(5000, maxCredit);
+            CreditAccount account = 
+                new CreditAccount(5000, maxCredit);
 
-            bool makePayment = account.TryMakeWithdrawal(10000);
+            bool makePayment = 
+                account.TryMakeWithdrawal(10000);
 
             Assert.True(makePayment);
 
@@ -116,11 +134,13 @@ namespace Tests
         }
 
         [Fact]
-        public void Test_OverdraftCredit()
+        public void Test_OverdraftCredit_CreditAccount()
         {
-            CreditAccount account = new CreditAccount(5000,maxCredit);
+            CreditAccount account = 
+                new CreditAccount(5000,maxCredit);
 
-            bool overCreditPayment = account.TryMakeWithdrawal(30000);
+            bool overCreditPayment = 
+                account.TryMakeWithdrawal(30000);
 
             Assert.False(overCreditPayment);
         }
@@ -128,10 +148,11 @@ namespace Tests
         //TEST INVESTMENT ACCOUNT
 
         [Fact]
-        public void Test_DepositMoneyInvestmentAccount()
+        public void Test_DepositMoney_InvestmentAccount()
         {
 
-            InvestmentAccount account = new InvestmentAccount(500, todaysDate);
+            InvestmentAccount account = 
+                new InvestmentAccount(500);
 
             bool depositMoney = account.TryMakeDeposit(5000);
 
@@ -139,9 +160,10 @@ namespace Tests
         }
 
         [Fact]
-        public void Test_WithdrawalMoneyInvestmentAccount()
+        public void Test_WithdrawalMoney_InvestmentAccount()
         {
-            InvestmentAccount account = new InvestmentAccount(5500, todaysDate);
+            InvestmentAccount account = 
+                new InvestmentAccount(5500);
 
             //Withdrawal
             bool withdrawalMoney = 
@@ -157,26 +179,87 @@ namespace Tests
         }
 
         [Fact]
-        public void Test_OnlyOneWithdrawalPerYearInvestmentAccount()
+        public void Test_OnlyOneWithdrawalPerYear_InvestmentAccount()
         {
-            InvestmentAccount account = new InvestmentAccount(5000, todaysDate);
+            InvestmentAccount account = 
+                new InvestmentAccount(5000);
 
-            //Withdrawal today
+            // First withdrawal within a year
             bool withdrawalMoneyToday = 
                 account.TryMakeWithdrawal(1000);
 
             Assert.True(withdrawalMoneyToday);
 
+            // Second withdrawal within a year
+            account.CurrentDate = DateTime.Today + TimeSpan.FromDays(250);
+           
+            bool withdrawalMoneySameYear = 
+                account.TryMakeWithdrawal(2000);
+
+            Assert.False(withdrawalMoneySameYear);
             
             // Withdrawal plus one year from now
-            var newDate = account.DateTime = todaysDate + TimeSpan.FromDays(369);
+            account.CurrentDate = DateTime.Today + TimeSpan.FromDays(369);
 
             bool withdrawalMoneyPlusOneYear =
                 account.TryMakeWithdrawal(1000);
 
-            Assert.False(withdrawalMoneyPlusOneYear);
+            Assert.True(withdrawalMoneyPlusOneYear);
+            
+        }
 
+        // TEST GENERAL BANKRULES
+        [Fact]
+        public void Test_MaximumCashDepositOf15000_RandomAccount()
+        {
+            InvestmentAccount account =
+                new InvestmentAccount(2000);
 
+            bool depositToMuch = account.TryMakeCashDeposit(15001);
+
+            Assert.False(depositToMuch);
+            
+        }
+
+        [Fact]
+        public void Test_NoMoreDepositsIfMaxDepositIsReachedThatDay_RandomAccount()
+        {
+            InvestmentAccount account =
+                new InvestmentAccount(4000);
+            
+            // Max kontantinsättning
+           bool depositMaximumAmount = account.TryMakeCashDeposit(15000);
+
+           Assert.True(depositMaximumAmount);
+
+           // Försök kontantinsättning samma dag
+           bool tryMakeSecondDepositAfterMaxAmount =
+               account.TryMakeCashDeposit(1500);
+
+           Assert.False(tryMakeSecondDepositAfterMaxAmount);
+
+           // Försök kontantinsättning dagen efter
+
+           account.CurrentDate = DateTime.Today + TimeSpan.FromDays(1);
+
+           bool tryMakeDepositOneDayLater = 
+               account.TryMakeCashDeposit(3000);
+
+           Assert.True(tryMakeDepositOneDayLater);
+            
+        }
+
+        [Fact]
+        public void Test_CanWithdrawalBankFeeWithNegativeBalance_RandomAccount()
+        {
+            SavingsAccount account = 
+                new SavingsAccount(0);
+
+            bool takeFee = 
+                account.TakeWithdrawalFee(500);
+
+            Assert.True(takeFee);
+            Assert.Equal(-500, account.AccountBalance());
         }
     }
 }

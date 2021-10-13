@@ -11,45 +11,45 @@
 
 ---
 ## **Overview**
-I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa olika konton för din behov.
+
+I denna online [Bank](https://en.wikipedia.org/wiki/Bank) kan du enkelt skapa olika konton fÃ¶r din behov.
 
 > **Kontotyper som erbjuds:**  
 > - Sparkonto
 > - Kreditkonto
 > - Investringssparkonto
-> - Lönekonto
+> - LÃ¶nekonto
     
 
-<br />
 
-## **Features**
+## Features
 
 **Sparkonto**  
-   * [x] Möjlighet till fem uttag per år sedan en avgift på 1% per uttag.
-   * [x] Max insättning av 15.000 kr i kontanter per dag. 
+   * [x] MÃ¶jlighet till fem uttag per Ã¥r sedan en avgift pÃ¥ 1% per uttag.
+   * [x] Max insÃ¤ttning av 15.000 kr i kontanter per dag. 
 
 **Investeringskonto**
-  * [x] Max ett uttag per år.
+  * [x] Max ett uttag per Ã¥r.
 
 **Kreditkonto**
-  * [x] Ha en kredit på 20.000 kr
+  * [x] Ha en kredit pÃ¥ 20.000 kr
 
-**Lönekonto**
-  * [x] Uttag av kontanter får ej överskrida saldo.
+**LÃ¶nekonto**
+  * [x] Uttag av kontanter fÃ¥r ej Ã¶verskrida saldo.
 
-**Allmänna kontoregler**
-  * [x] Man får ej sätta ut minusvärde.
+**AllmÃ¤nna kontoregler**
+  * [x] Man fÃ¥r ej sÃ¤tta ut minusvÃ¤rde.
   
   
   **Framtida features**
-- [ ]  Max kontoinsättning på 15.000 kr varje dag.
-- [ ] Årlig kontoavgift på 500 kr.
+- [ ]  Max kontoinsÃ¤ttning pÃ¥ 15.000 kr varje dag.
+- [ ] Ã…rlig kontoavgift pÃ¥ 500 kr.
 
 <br />
 
 ## **Tests** 
 
-Testerna genomförs enlig TDD metoden med hjälp av xUnit.net framework. 
+Testerna genomfÃ¶rs enlig TDD metoden med hjÃ¤lp av xUnit.net framework. 
   
 *exempel test:*  
 
@@ -83,11 +83,11 @@ Testerna genomförs enlig TDD metoden med hjälp av xUnit.net framework.
 
 #### **TDD**
 
-Testdriven utveckling (engelska: test-driven development, TDD) är en systemutvecklingsmetod som sätter starkt fokus på automatiserad enhetstestning av varje programblock, följt av integrationstester och användartester.
+Testdriven utveckling (engelska: test-driven development, TDD) Ã¤r en systemutvecklingsmetod som sÃ¤tter starkt fokus pÃ¥ automatiserad enhetstestning av varje programblock, fÃ¶ljt av integrationstester och anvÃ¤ndartester.
 
-Metoden förespråkar att ingen programkod får införas eller ändras utan att testfall har skrivits först. Innan kod checkas in ska utvecklaren lokalt köra igenom de nya testfallen för den senaste kodändringen, samt alla testfall. Först när testfallen har exekverats och fått godkänt är utvecklaren tillåten att checka in kodändringen.
+Metoden fÃ¶resprÃ¥kar att ingen programkod fÃ¥r infÃ¶ras eller Ã¤ndras utan att testfall har skrivits fÃ¶rst. Innan kod checkas in ska utvecklaren lokalt kÃ¶ra igenom de nya testfallen fÃ¶r den senaste kodÃ¤ndringen, samt alla testfall. FÃ¶rst nÃ¤r testfallen har exekverats och fÃ¥tt godkÃ¤nt Ã¤r utvecklaren tillÃ¥ten att checka in kodÃ¤ndringen.
 
-Tack vare TDD törs utvecklaren göra även genomgripande förändringar av koden och genom en bred testsvit får man veta om den egna kodändringen haft sönder annan kod i systemet.
+Tack vare TDD tÃ¶rs utvecklaren gÃ¶ra Ã¤ven genomgripande fÃ¶rÃ¤ndringar av koden och genom en bred testsvit fÃ¥r man veta om den egna kodÃ¤ndringen haft sÃ¶nder annan kod i systemet.
 
 <br />
 
@@ -97,7 +97,8 @@ Tack vare TDD törs utvecklaren göra även genomgripande förändringar av koden och
 
 #### **xUnit.net**
 
-xUnit.net är en gratis, open-source unit test verktyg för .NET framework. 
+xUnit.net Ã¤r en gratis, open-source unit test verktyg fÃ¶r .NET framework. 
+
 
 
 
