@@ -223,8 +223,18 @@ namespace Tests
            bool tryMakeDepositOneDayLater = account.TryMakeCashDeposit(3000);
 
            Assert.True(tryMakeDepositOneDayLater);
+            
+        }
 
+        [Fact]
+        public void Test_CanWithdrawalBankFeeWithNegativeBalance()
+        {
+            SavingsAccount account = new SavingsAccount(0);
 
+            bool takeFee = account.TakeWithdrawalFee(500);
+
+            Assert.True(takeFee);
+            Assert.Equal(-500, account.AccountBalance());
         }
     }
 }

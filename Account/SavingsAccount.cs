@@ -9,6 +9,10 @@ namespace Logic
     public class SavingsAccount : Account
     {
         public SavingsAccount(int balance) : base(balance) {}
-       
+
+        public bool TakeWithdrawalFee(int fee)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
