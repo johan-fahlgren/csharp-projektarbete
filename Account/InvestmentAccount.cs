@@ -8,8 +8,8 @@ namespace Logic
 {
     public class InvestmentAccount : Account
     {
-        
-        
+        public DateTime LastWithdrawalDate;
+
         public InvestmentAccount(int balance) :base(balance)
         {
             Balance = balance;
@@ -17,7 +17,7 @@ namespace Logic
         
         public override bool TryMakeWithdrawal(int amount)
         {
-            if (!CheckDateWithdrawal())
+            if (HasMadeWithdrawalThisYear())
             {
                 return false;
             }
@@ -27,10 +27,26 @@ namespace Logic
             if (canWithdrawal)
             {
                 Balance -= amount;
+                LastWithdrawalDate = CurrentDate;
             }
 
             return canWithdrawal;
         }
-        
+        public bool HasMadeWithdrawalThisYear()
+        {
+            if (LastWithdrawalDate == DateTime.MinValue)
+            {
+                return false;
+            }
+            else if (LastWithdrawalDate + TimeSpan.FromDays(365) <= CurrentDate)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }

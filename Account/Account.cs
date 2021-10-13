@@ -44,19 +44,6 @@ namespace Logic
         {
             return Balance;
         }
-        public bool CheckDateWithdrawal()
-        {
-            var dateNotOK = DateTime.Today + TimeSpan.FromDays(365);
-
-            var dateOK = DateTime <= dateNotOK;
-
-            if (dateOK)
-            {
-                return true;
-            }
-
-            return false;
-        }
 
         public bool TryMakeCashDeposit(int amount)
         {

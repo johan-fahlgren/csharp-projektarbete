@@ -8,7 +8,6 @@ namespace Tests
     public class AccountTests
     {
         //FIELDS
-        private DateTime todaysDate = DateTime.Today;
         private int maxCredit = 20000;
 
         // TESTS SAVINGS ACCOUNT
@@ -65,7 +64,7 @@ namespace Tests
                 }
             }
         }
-        // Test Salary Account
+        // TEST SALARY ACCOUNT
         [Fact]
         public void Test_DepositSalaryAccount()
         {
@@ -94,7 +93,7 @@ namespace Tests
             Assert.False(withdrawalTooMuchMoney);
         }
 
-        // Test Credit Account
+        // TEST CREDIT ACCOUNT
         [Fact]
         public void Test_CreateCreditAccount()
         {
@@ -164,26 +163,32 @@ namespace Tests
             InvestmentAccount account = 
                 new InvestmentAccount(5000);
 
-            //Withdrawal today
+            // First withdrawal within a year
             bool withdrawalMoneyToday = 
                 account.TryMakeWithdrawal(1000);
 
             Assert.True(withdrawalMoneyToday);
 
+            // Second withdrawal within a year
+            account.CurrentDate = DateTime.Today + TimeSpan.FromDays(250);
+           
+            bool withdrawalMoneySameYear = 
+                account.TryMakeWithdrawal(2000);
+
+            Assert.False(withdrawalMoneySameYear);
             
             // Withdrawal plus one year from now
-            var newDate = account.DateTime = todaysDate + TimeSpan.FromDays(369);
+            account.CurrentDate = DateTime.Today + TimeSpan.FromDays(369);
 
             bool withdrawalMoneyPlusOneYear =
                 account.TryMakeWithdrawal(1000);
 
-            Assert.False(withdrawalMoneyPlusOneYear);
-
+            Assert.True(withdrawalMoneyPlusOneYear);
             
         }
 
         [Fact]
-        public void Test_MaximumDepositOf15000()
+        public void Test_MaximumCashDepositOf15000()
         {
             InvestmentAccount account =
                 new InvestmentAccount(2000);
@@ -191,8 +196,7 @@ namespace Tests
             bool depositToMuch = account.TryMakeCashDeposit(15001);
 
             Assert.False(depositToMuch);
-
-
+            
         }
 
         [Fact]
