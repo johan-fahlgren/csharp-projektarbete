@@ -6,8 +6,7 @@ namespace Logic
     public abstract class Account : IPayer, IDeposit, ICashDeposit
     {
         protected int Balance;
-        public DateTime DateTime;
-        public DateTime TooBigDepositDate;
+        public DateTime CashDepositDate;
 
         public DateTime CurrentDate { get; set; }
 
@@ -57,7 +56,7 @@ namespace Logic
             }
             else if (amount == 15000)
             {
-                TooBigDepositDate = CurrentDate;
+                CashDepositDate = CurrentDate;
 
             }
 
@@ -67,11 +66,11 @@ namespace Logic
 
         public bool HasMadeMaxCashDepositToday()
         {
-            if (TooBigDepositDate == DateTime.MinValue)
+            if (CashDepositDate == DateTime.MinValue)
             {
                 return false;
             }
-            else if (TooBigDepositDate + TimeSpan.FromDays(1) <= CurrentDate)
+            else if (CashDepositDate + TimeSpan.FromDays(1) <= CurrentDate)
             {
                 return false;
             }
