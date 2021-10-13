@@ -12,7 +12,8 @@ namespace Logic
 
         public bool TakeWithdrawalFee(int fee)
         {
-            throw new NotImplementedException();
+            Balance -= fee;
+            return true;
         }
     }
 }
