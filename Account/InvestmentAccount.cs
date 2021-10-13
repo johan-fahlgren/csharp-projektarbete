@@ -10,10 +10,9 @@ namespace Logic
     {
         
         
-        public InvestmentAccount(int balance, DateTime dateTime) :base(balance)
+        public InvestmentAccount(int balance) :base(balance)
         {
             Balance = balance;
-            DateTime = dateTime;
         }
         
         public override bool TryMakeWithdrawal(int amount)

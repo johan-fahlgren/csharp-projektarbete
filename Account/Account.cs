@@ -3,25 +3,27 @@ using System.Collections.Generic;
 
 namespace Logic
 {
-    public abstract class Account : IPayer, IDeposit
+    public abstract class Account : IPayer, IDeposit, ICashDeposit
     {
         protected int Balance;
         public DateTime DateTime;
+        public DateTime TooBigDepositDate;
+
+        public DateTime CurrentDate { get; set; }
+
         protected Account(int balance)
         {
             Balance = balance;
+            CurrentDate = DateTime.Today;
         }
 
         public bool TryMakeDeposit(int amount)
         {
             var newBalance = amount + Balance;
 
-            if (amount <= 15000)
+            if (newBalance > Balance)
             {
-                if (newBalance > Balance)
-                {
-                    return true;
-                }
+                return true;
             }
             
             return false;
@@ -56,6 +58,40 @@ namespace Logic
             return false;
         }
 
+        public bool TryMakeCashDeposit(int amount)
+        {
+            if (amount > 15000)
+            {
+                return false;
+            }
+            else if (HasMadeMaxCashDepositToday())
+            {
+                return false;
+            }
+            else if (amount == 15000)
+            {
+                TooBigDepositDate = CurrentDate;
 
+            }
+
+            Balance += amount;
+            return true;
+        }
+
+        public bool HasMadeMaxCashDepositToday()
+        {
+            if (TooBigDepositDate == DateTime.MinValue)
+            {
+                return false;
+            }
+            else if (TooBigDepositDate + TimeSpan.FromDays(1) <= CurrentDate)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

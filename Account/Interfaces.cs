@@ -16,6 +16,11 @@ namespace Logic
         public bool TryMakeDeposit(int amount);
     }
 
+    public interface ICashDeposit
+    {
+        public bool TryMakeCashDeposit(int amount);
+    }
+
 }
 
   

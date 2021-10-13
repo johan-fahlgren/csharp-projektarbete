@@ -132,7 +132,7 @@ namespace Tests
         {
 
             InvestmentAccount account = 
-                new InvestmentAccount(500, todaysDate);
+                new InvestmentAccount(500);
 
             bool depositMoney = account.TryMakeDeposit(5000);
 
@@ -143,7 +143,7 @@ namespace Tests
         public void Test_WithdrawalMoneyInvestmentAccount()
         {
             InvestmentAccount account = 
-                new InvestmentAccount(5500, todaysDate);
+                new InvestmentAccount(5500);
 
             //Withdrawal
             bool withdrawalMoney = 
@@ -162,7 +162,7 @@ namespace Tests
         public void Test_OnlyOneWithdrawalPerYearInvestmentAccount()
         {
             InvestmentAccount account = 
-                new InvestmentAccount(5000, todaysDate);
+                new InvestmentAccount(5000);
 
             //Withdrawal today
             bool withdrawalMoneyToday = 
@@ -186,9 +186,9 @@ namespace Tests
         public void Test_MaximumDepositOf15000()
         {
             InvestmentAccount account =
-                new InvestmentAccount(2000, todaysDate);
+                new InvestmentAccount(2000);
 
-            bool depositToMuch = account.TryMakeDeposit(15001);
+            bool depositToMuch = account.TryMakeCashDeposit(15001);
 
             Assert.False(depositToMuch);
 
@@ -199,18 +199,24 @@ namespace Tests
         public void Test_NoMoreDepositsIfMaxDepositIsReachedThatDay()
         {
             InvestmentAccount account =
-                new InvestmentAccount(4000, todaysDate);
-
-           bool depositMaximumAmount = account.TryMakeDeposit(15000);
+                new InvestmentAccount(4000);
+            
+            // Max kontantinsättning
+           bool depositMaximumAmount = account.TryMakeCashDeposit(15000);
 
            Assert.True(depositMaximumAmount);
 
+           // Försök kontantinsättning samma dag
            bool tryMakeSecondDepositAfterMaxAmount =
-               account.TryMakeDeposit(1500);
+               account.TryMakeCashDeposit(1500);
 
            Assert.False(tryMakeSecondDepositAfterMaxAmount);
 
-           bool tryMakeDepositOneDayLater = account.TryMakeDeposit(3000);
+           // Försök kontantinsättning dagen efter
+
+           account.CurrentDate = DateTime.Today + TimeSpan.FromDays(1);
+
+           bool tryMakeDepositOneDayLater = account.TryMakeCashDeposit(3000);
 
            Assert.True(tryMakeDepositOneDayLater);
 
