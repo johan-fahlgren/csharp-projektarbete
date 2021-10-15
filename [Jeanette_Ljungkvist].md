@@ -47,7 +47,7 @@ inte fungerade som vi ville att det skulle göra och att det troligtvis skulle kr
 lade till en **Dictionary** för att lösa det problemet. Tyvärr så kände varken jag eller Johan
 att vi hade tillräckligt med kunskaper för att få till en sådan lösning.
 
-Det jag tror vi skulle kunna göra lite bättre är att vi eventuellt skulle kunnastäda upp våra
+Det jag tror vi skulle kunna göra lite bättre är att vi eventuellt skulle kunna städa upp våra
 tester lite grann med att till exempel implementera **[Theory]** i några av dom.
 
 <br />
