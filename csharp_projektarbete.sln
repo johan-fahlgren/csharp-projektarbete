@@ -9,8 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rapport", "Rapport", "{990FB040-040A-4854-9955-D1EB531E574B}"
 	ProjectSection(SolutionItems) = preProject
+		[Jeanette_Ljungkvist].md = [Jeanette_Ljungkvist].md
 		[Johan_Fahlgren].md = [Johan_Fahlgren].md
-		Jeanette_Ljungkvist.md = Jeanette_Ljungkvist.md
 		Readme(kata).md = Readme(kata).md
 	EndProjectSection
 EndProject
